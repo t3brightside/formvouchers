@@ -1,5 +1,5 @@
 <?php
-namespace Brightside\Formvouchers\Domain\Finishers;
+namespace Brightside\Formvouchers\Finisher;
 
 use Brightside\Formvouchers\Domain\Model\FormvouchersVoucher;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

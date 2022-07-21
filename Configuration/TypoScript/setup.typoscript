@@ -1,0 +1,9 @@
+
+# Registration for the frontend
+plugin.tx_form {
+    settings {
+        yamlConfigurations {
+            8977801435 = EXT:formvouchers/Configuration/Form/FormvouchersFrontend.yaml
+        }
+    }
+}

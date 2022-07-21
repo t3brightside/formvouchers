@@ -35,8 +35,8 @@ TYPO3:
                           propertyValidators:
                             10: 'Integer'
                             20: 'FormElementIdentifierWithinCurlyBracesExclusive'
-            
-                            
+
+
 
           finishersDefinition:
             Formvouchers:

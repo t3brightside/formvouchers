@@ -1,0 +1,38 @@
+TYPO3:
+  CMS:
+    Form:
+      prototypes:
+        standard:
+          finishersDefinition:
+            Formvoucher:
+              implementationClassName: 'Brightside\Formvouchers\Finisher\FormvouchersFinisher'
+              FormEngine:
+                __inheritances:
+                  10: 'TYPO3.CMS.Form.mixins.formElementMixins.formVouchersFinisherMixin'
+              formEditor:
+                label: 'Voucher'
+                options:
+                  identifier: 'voucher'
+                  addField: false
+                  fieldLabel: 'Voucher'
+                  prefix: ''
+      mixins:
+        formElementMixins:
+          formVouchersFinisherMixin:
+            elements:
+              addField:
+                label: 'Add additional field'
+                config:
+                  type: 'check'
+              identifier:
+                label: 'Counter Identifier'
+                config:
+                  type: 'input'
+              fieldLabel:
+                label: 'Field label'
+                config:
+                  type: 'input'
+              prefix:
+                label: 'Prefix'
+                config:
+                  type: 'input'
