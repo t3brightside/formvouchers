@@ -1,7 +1,7 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
 	'title' => 'Formvouchers',
-	'description' => 'Sends unique vouchers with form e-mails.',
+	'description' => 'Sends unique vouchers with forms e-mail finisher.',
 	'category' => 'fe',
 	'version' => '1.0.0',
 	'state' => 'stable',

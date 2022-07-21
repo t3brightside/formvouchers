@@ -16,11 +16,11 @@ return [
         'iconfile' => 'EXT:formvouchers/Resources/Public/Icons/Extension.svg'
     ],
     'interface' => [
-        'showRecordFieldList' => 'voucher, used'
+        'showRecordFieldList' => 'voucher, is_used'
     ],
     'types' => [
         '1' => [
-            'showitem' => 'voucher, used'
+            'showitem' => 'voucher, is_used'
         ]
     ],
     'columns' => [
@@ -33,9 +33,9 @@ return [
                 'readOnly' => 0
             ]
         ],
-        'used' => [
+        'is_used' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:formvouchers/Resources/Private/Language/locallang.xlf:tx_formvouchers.used',
+            'label' => 'LLL:EXT:formvouchers/Resources/Private/Language/locallang.xlf:tx_formvouchers.is_used',
             'config' => [
                 'type' => 'check',
                 'readOnly' => 0

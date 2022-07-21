@@ -1,6 +1,6 @@
 {
   "name": "t3brightside/formvouchers",
-  "description": "TYPO3 CMS extension for sending unique vouchers with form e-mails.",
+  "description": "TYPO3 CMS extension for sending unique vouchers with form e-mail finishers.",
   "type": "typo3-cms-extension",
   "keywords": ["TYPO3", "form", "voucher"],
   "license": "GPL-2.0-or-later",

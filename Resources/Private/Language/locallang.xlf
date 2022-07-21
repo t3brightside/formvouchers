@@ -9,7 +9,7 @@
             <trans-unit id="tx_formvouchers.voucher">
                 <source>Voucher Code</source>
             </trans-unit>
-            <trans-unit id="tx_formvouchers.used">
+            <trans-unit id="tx_formvouchers.is_used">
                 <source>Used</source>
             </trans-unit>
         </body>
