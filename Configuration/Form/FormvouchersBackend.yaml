@@ -25,7 +25,7 @@ TYPO3:
                         200:
                           identifier: 'voucherPageUid'
                           templateName: 'Inspector-Typo3WinBrowserEditor'
-                          label: 'Vouchers Page'
+                          label: 'Voucher Codes Page'
                           buttonLabel: 'formEditor.elements.Form.finisher.Redirect.editor.pageUid.buttonLabel'
                           browsableType: pages
                           propertyPath: 'options.voucherPageUid'

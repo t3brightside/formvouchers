@@ -4,7 +4,7 @@ TYPO3:
       prototypes:
         standard:
           finishersDefinition:
-            Formvoucher:
+            Formvouchers:
               implementationClassName: 'Brightside\Formvouchers\Finisher\FormvouchersFinisher'
               FormEngine:
                 __inheritances:
@@ -12,7 +12,7 @@ TYPO3:
               formEditor:
                 label: 'Voucher'
                 options:
-                  identifier: 'voucher'
+                  identifier: 'voucherPageUid'
                   addField: false
                   fieldLabel: 'Voucher'
                   prefix: ''
