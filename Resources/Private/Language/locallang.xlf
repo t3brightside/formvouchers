@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2018-05-23T00:00:00Z" product-name="formvouchers">
+        <header/>
+        <body>
+            <trans-unit id="tx_formvouchers">
+                <source>Vouchers</source>
+            </trans-unit>
+            <trans-unit id="tx_formvouchers.voucher">
+                <source>Voucher Code</source>
+            </trans-unit>
+            <trans-unit id="tx_formvouchers.used">
+                <source>Used</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

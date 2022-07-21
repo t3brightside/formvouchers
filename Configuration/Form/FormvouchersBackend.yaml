@@ -1,0 +1,70 @@
+TYPO3:
+  CMS:
+    Form:
+      prototypes:
+        standard:
+          formElementsDefinition:
+            Form:
+              formEditor:
+                editors:
+                  900:
+                    selectOptions:
+                      8977801435:
+                        value: 'Formvoucher'
+                        label: 'Voucher to e-mails'
+
+                propertyCollections:
+                  finishers:
+                    8977801435:
+                      __inheritances:
+                        10: 'TYPO3.CMS.Form.mixins.formElementMixins.formVouchersFinisherMixin'
+                      identifier: 'Formvoucher'
+                      editors:
+                        __inheritances:
+                          10: 'TYPO3.CMS.Form.mixins.formElementMixins.BaseCollectionEditorsMixin'
+                        100:
+                          label: 'Voucher'
+                        200:
+                          identifier: 'voucherPageUid'
+                          templateName: 'Inspector-Typo3WinBrowserEditor'
+                          label: 'Vouchers Page'
+                          buttonLabel: 'formEditor.elements.Form.finisher.Redirect.editor.pageUid.buttonLabel'
+                          browsableType: pages
+                          propertyPath: 'options.voucherPageUid'
+                          propertyValidatorsMode: 'OR'
+                          propertyValidators:
+                            10: 'Integer'
+                            20: 'FormElementIdentifierWithinCurlyBracesExclusive'
+            
+                            
+
+          finishersDefinition:
+            Formvouchers:
+              formEditor:
+                iconIdentifier: 'form-finisher'
+                predefinedDefaults:
+                  options:
+                    addField: false
+                    fieldLabel: 'Voucher'
+                    prefix: ''
+              FormEngine:
+                label: 'Voucher'
+                __inheritances:
+                  10: 'TYPO3.CMS.Form.mixins.formElementMixins.formVouchersFinisherMixin'
+
+      mixins:
+        formElementMixins:
+          BaseCollectionEditorsMixin:
+            100:
+              identifier: header
+              templateName: Inspector-CollectionElementHeaderEditor
+              label: ''
+              90099:
+                identifier: removeButton
+                templateName: Inspector-RemoveElementEditor
+          formVouchersFinisherMixin:
+            elements:
+              addField:
+                label: 'Enable Voucher'
+                config:
+                  type: 'check'
