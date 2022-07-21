@@ -7,7 +7,7 @@ call_user_func(function () {
              module.tx_form {
                  settings {
                      yamlConfigurations {
-                         100 = EXT:formvouchers/Configuration/Form/FormvouchersBackend.yaml
+                         8977801435 = EXT:formvouchers/Configuration/Form/FormvouchersBackend.yaml
                      }
                  }
              }
