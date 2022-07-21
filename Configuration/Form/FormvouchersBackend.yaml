@@ -10,20 +10,18 @@ TYPO3:
                   900:
                     selectOptions:
                       8977801435:
-                        value: 'Formvoucher'
+                        value: 'Formvouchers'
                         label: 'Voucher to e-mails'
 
                 propertyCollections:
                   finishers:
                     8977801435:
-                      __inheritances:
-                        10: 'TYPO3.CMS.Form.mixins.formElementMixins.formVouchersFinisherMixin'
-                      identifier: 'Formvoucher'
+                      identifier: 'Formvouchers'
                       editors:
-                        __inheritances:
-                          10: 'TYPO3.CMS.Form.mixins.formElementMixins.BaseCollectionEditorsMixin'
                         100:
-                          label: 'Voucher'
+                          identifier: header
+                          templateName: Inspector-CollectionElementHeaderEditor
+                          label: 'Formvouchers'
                         200:
                           identifier: 'voucherPageUid'
                           templateName: 'Inspector-Typo3WinBrowserEditor'
@@ -35,7 +33,9 @@ TYPO3:
                           propertyValidators:
                             10: 'Integer'
                             20: 'FormElementIdentifierWithinCurlyBracesExclusive'
-
+                        9999:
+                          identifier: removeButton
+                          templateName: Inspector-RemoveElementEditor
 
 
           finishersDefinition:
@@ -49,22 +49,5 @@ TYPO3:
                     prefix: ''
               FormEngine:
                 label: 'Voucher'
-                __inheritances:
-                  10: 'TYPO3.CMS.Form.mixins.formElementMixins.formVouchersFinisherMixin'
-
-      mixins:
-        formElementMixins:
-          BaseCollectionEditorsMixin:
-            100:
-              identifier: header
-              templateName: Inspector-CollectionElementHeaderEditor
-              label: ''
-              9999:
-                identifier: removeButton
-                templateName: Inspector-RemoveElementEditor
-          formVouchersFinisherMixin:
-            elements:
-              addField:
-                label: 'Enable Voucher'
-                config:
-                  type: 'check'
+                200:
+                  identifier: 'voucherPageUid'
