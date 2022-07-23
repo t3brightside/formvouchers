@@ -10,13 +10,13 @@ TYPO3:
                   900:
                     selectOptions:
                       8977801435:
-                        value: 'Formvouchers'
-                        label: 'Voucher to e-mails'
+                        value: 'FormvouchersFinisher'
+                        label: 'Formvouchers'
 
                 propertyCollections:
                   finishers:
                     8977801435:
-                      identifier: 'Formvouchers'
+                      identifier: 'FormvouchersFinisher'
                       editors:
                         100:
                           identifier: header
@@ -39,7 +39,7 @@ TYPO3:
 
 
           finishersDefinition:
-            Formvouchers:
+            FormvouchersFinisher:
               formEditor:
                 iconIdentifier: 'form-finisher'
                 predefinedDefaults:

@@ -15,9 +15,6 @@ return [
         'searchFields' => 'voucher',
         'iconfile' => 'EXT:formvouchers/Resources/Public/Icons/Extension.svg'
     ],
-    'interface' => [
-        'showRecordFieldList' => 'voucher, is_used'
-    ],
     'types' => [
         '1' => [
             'showitem' => 'voucher, is_used'

@@ -1,5 +1,5 @@
 <?php
-namespace Brightside\Formvouchers\Finisher;
+namespace Brightside\Formvouchers\Domain\Finishers;
 
 use Brightside\Formvouchers\Domain\Model\Formvouchers;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -10,7 +10,7 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Form\Domain\Finishers\Exception\FinisherException;
 use TYPO3\CMS\Form\Domain\Runtime\FormRuntime;
 
-class Formvouchers extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinisher
+class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinisher
 {
 
 

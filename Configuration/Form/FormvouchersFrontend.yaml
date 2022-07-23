@@ -4,8 +4,8 @@ TYPO3:
       prototypes:
         standard:
           finishersDefinition:
-            Formvouchers:
-              implementationClassName: 'Brightside\Formvouchers\Finisher\Formvouchers'
+            FormvouchersFinisher:
+              implementationClassName: 'Brightside\Formvouchers\Domain\Finishers\FormvouchersFinisher'
               formEditor:
                 label: 'Voucher'
                 options:
