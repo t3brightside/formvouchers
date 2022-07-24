@@ -30,17 +30,17 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinishe
                     ->getFormRuntime()
                     ->getFormDefinition()
                     ->getPageByIndex(0)
-                    ->createElement('voucher', 'Text');
+                    ->createElement('code', 'Text');
                 $newField->setDefaultValue($voucher);
                 $newField->setDataType('string');
-                $newField->setLabel($this->parseOption('fieldLabel'));
+                $newField->setLabel('code');
             } catch (\TYPO3\CMS\Form\Exception $exception) {
             }
         }
 
         $this->finisherContext->getFinisherVariableProvider()->add(
             $this->shortFinisherIdentifier,
-            'voucher',
+            'code',
             $voucher
         );
 
