@@ -13,5 +13,37 @@ use TYPO3\CMS\Form\Domain\Runtime\FormRuntime;
 class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinisher
 {
 
+    public function __construct()
+    {
+        parent::__construct($finisherIdentifier);
+    }
+    /**
+     * @return string|null
+     */
+    public function executeInternal()
+    {
+        $voucher = "Experiment";
+        if ($this->parseOption('addField')) {
+            try {
+                /** @var AbstractRenderable $newField */
+                $newField = $this->finisherContext
+                    ->getFormRuntime()
+                    ->getFormDefinition()
+                    ->getPageByIndex(0)
+                    ->createElement('voucher', 'Text');
+                $newField->setDefaultValue($voucher);
+                $newField->setDataType('string');
+                $newField->setLabel($this->parseOption('fieldLabel'));
+            } catch (\TYPO3\CMS\Form\Exception $exception) {
+            }
+        }
 
+        $this->finisherContext->getFinisherVariableProvider()->add(
+            $this->shortFinisherIdentifier,
+            'voucher',
+            $voucher
+        );
+
+        return null;
+    }
 }
