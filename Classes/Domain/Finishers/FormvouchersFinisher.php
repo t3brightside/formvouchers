@@ -10,7 +10,7 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 use TYPO3\CMS\Form\Domain\Finishers\Exception\FinisherException;
 use TYPO3\CMS\Form\Domain\Runtime\FormRuntime;
 
-class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinisher
+class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
 {
     /**
      * @return string|null
