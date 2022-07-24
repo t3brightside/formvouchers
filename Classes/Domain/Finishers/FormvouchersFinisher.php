@@ -18,19 +18,17 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinishe
     public function executeInternal()
     {
         $voucher = "Experiment";
-        if ($this->parseOption('addField')) {
-            try {
-                /** @var AbstractRenderable $newField */
-                $newField = $this->finisherContext
-                    ->getFormRuntime()
-                    ->getFormDefinition()
-                    ->getPageByIndex(0)
-                    ->createElement('code', 'Text');
-                $newField->setDefaultValue($voucher);
-                $newField->setDataType('string');
-                $newField->setLabel('code');
-            } catch (\TYPO3\CMS\Form\Exception $exception) {
-            }
+        try {
+            /** @var AbstractRenderable $newField */
+            $newField = $this->finisherContext
+                ->getFormRuntime()
+                ->getFormDefinition()
+                ->getPageByIndex(0)
+                ->createElement('code', 'Text');
+            $newField->setDefaultValue($voucher);
+            $newField->setDataType('string');
+            $newField->setLabel('code');
+        } catch (\TYPO3\CMS\Form\Exception $exception) {
         }
 
         $this->finisherContext->getFinisherVariableProvider()->add(
