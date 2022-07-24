@@ -12,11 +12,6 @@ use TYPO3\CMS\Form\Domain\Runtime\FormRuntime;
 
 class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\EmailFinisher
 {
-
-    public function __construct()
-    {
-        parent::__construct($finisherIdentifier);
-    }
     /**
      * @return string|null
      */
