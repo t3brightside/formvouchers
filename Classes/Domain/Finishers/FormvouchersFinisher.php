@@ -23,15 +23,23 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
         $voucherPageUid = $this->parseOption('voucherPageUid');
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_formvouchers_domain_model_vouchers');
         $row = $queryBuilder
-            ->select('voucher')
+            ->select('uid', 'voucher')
             ->from('tx_formvouchers_domain_model_vouchers')
             ->where(
                 $queryBuilder->expr()->eq('is_used', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
             )
             ->setMaxResults(1)
+            ->add('FOR UPDATE')
             ->executeQuery()
             ->fetchAssociative();
-        $voucher = $row['voucher'] . '-' . (string)$voucherPageUid;
+        $voucher = $row['voucher'];
+
+        $queryBuilder->update('tx_formvouchers_domain_model_vouchers')
+            ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($row['uid'], \PDO::PARAM_INT)))
+            ->set('is_used', 1)
+            ->set('pid', $voucherPageUid)
+            ->executeQuery();
+
         /** @var AbstractRenderable $newField */
         $newField = $this->finisherContext
             ->getFormRuntime()
