@@ -33,6 +33,14 @@ TYPO3:
                           propertyValidators:
                             10: 'Integer'
                             20: 'FormElementIdentifierWithinCurlyBracesExclusive'
+                        300:
+                          identifier: 'checkSend'
+                          templateName: 'Inspector-TextEditor'
+                          label: 'Send only if this field is checked'
+                          propertyPath: 'options.checkSend'
+                          enableFormelementSelectionButton: true
+                          propertyValidators:
+                            10: 'FormElementIdentifierWithinCurlyBracesInclusive'
                         9999:
                           identifier: removeButton
                           templateName: Inspector-RemoveElementEditor
