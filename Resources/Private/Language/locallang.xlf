@@ -3,13 +3,13 @@
     <file source-language="en" datatype="plaintext" original="messages" date="2018-05-23T00:00:00Z" product-name="formvouchers">
         <header/>
         <body>
-            <trans-unit id="tx_formvouchers">
+            <trans-unit id="tx_formvouchers_domain_model_vouchers">
                 <source>Vouchers</source>
             </trans-unit>
-            <trans-unit id="tx_formvouchers.voucher">
+            <trans-unit id="tx_formvouchers_domain_model_vouchers.voucher">
                 <source>Voucher Code</source>
             </trans-unit>
-            <trans-unit id="tx_formvouchers.is_used">
+            <trans-unit id="tx_formvouchers_domain_model_vouchers.is_used">
                 <source>Used</source>
             </trans-unit>
         </body>

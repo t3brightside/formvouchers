@@ -2,7 +2,7 @@
 
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:formvouchers/Resources/Private/Language/locallang.xlf:tx_formvouchers',
+        'title' => 'LLL:EXT:formvouchers/Resources/Private/Language/locallang.xlf:tx_formvouchers_domain_model_vouchers',
         'label' => 'voucher',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -23,7 +23,7 @@ return [
     'columns' => [
         'voucher' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:formvouchers/Resources/Private/Language/locallang.xlf:formvouchers.voucher',
+            'label' => 'LLL:EXT:formvouchers/Resources/Private/Language/locallang.xlf:tx_formvouchers_domain_model_vouchers.voucher',
             'config' => [
                 'type' => 'input',
                 'size' => '30',
@@ -32,7 +32,7 @@ return [
         ],
         'is_used' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:formvouchers/Resources/Private/Language/locallang.xlf:tx_formvouchers.is_used',
+            'label' => 'LLL:EXT:formvouchers/Resources/Private/Language/locallang.xlf:tx_formvouchers_domain_model_vouchers.is_used',
             'config' => [
                 'type' => 'check',
                 'readOnly' => 0
