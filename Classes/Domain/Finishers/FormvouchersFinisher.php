@@ -45,7 +45,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                 ->fetchAssociative();
 
             $uid = $row['uid'];
-            $voucher = $row['voucher']. " " . $uid;
+            $voucher = $row['voucher'];
 
             $queryBuilder
                 ->update('tx_formvouchers_domain_model_vouchers')
