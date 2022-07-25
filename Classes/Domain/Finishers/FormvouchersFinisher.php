@@ -8,11 +8,19 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 
 class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
 {
+
+    /**
+     * @var array
+     */
+    protected $options = [
+        'voucherPageUid' => 0,
+    ];
     /**
      * @return string|null
      */
     public function executeInternal()
     {
+        $voucherPageUid = $this->parseOption('voucherPageUid');
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_formvouchers_domain_model_vouchers');
         $row = $queryBuilder
             ->select('voucher')
@@ -23,7 +31,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
             ->setMaxResults(1)
             ->executeQuery()
             ->fetchAssociative();
-        $voucher = $row['voucher'];
+        $voucher = $row['voucher'] . '-' . (string)$voucherPageUid;
         /** @var AbstractRenderable $newField */
         $newField = $this->finisherContext
             ->getFormRuntime()
