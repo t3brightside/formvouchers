@@ -48,6 +48,10 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                 ->executeQuery()
                 ->fetchAssociative();
 
+            if (!$row) {
+                sem_release($semaphore);
+                return null;
+            }
             $uid = $row['uid'];
             $voucher = $row['voucher'];
 
