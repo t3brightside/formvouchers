@@ -31,14 +31,15 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
             ->setMaxResults(1)
             ->executeQuery()
             ->fetchAssociative();
-        $voucher = $row['voucher'];
-        $uid = $row['uid'];
 
-        $queryBuilder->update('tx_formvouchers_domain_model_vouchers')
-            ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT)))
-            ->set('is_used', 1)
-            ->set('pid', $voucherPageUid)
-            ->executeQuery();
+        $uid = $row['uid'];
+        $voucher = $row['voucher']. " " . $uid;
+
+        // $queryBuilder->update('tx_formvouchers_domain_model_vouchers')
+        //     ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT)))
+        //     ->set('is_used', 1)
+        //     ->set('pid', $voucherPageUid)
+        //     ->executeQuery();
 
         /** @var AbstractRenderable $newField */
         $newField = $this->finisherContext
