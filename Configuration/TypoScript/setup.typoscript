@@ -1,9 +1,41 @@
-
 # Registration for the frontend
 plugin.tx_form {
-    settings {
-        yamlConfigurations {
-            8977801435 = EXT:formvouchers/Configuration/Form/FormvouchersFrontend.yaml
-        }
-    }
+  settings {
+    yamlConfigurations.8977801435 = EXT:formvouchers/Configuration/Form/FormvouchersFrontend.yaml
+#    formDefinitionOverrides {
+    # enable checkbox field if codes are available
+#      testVouchers {
+#        renderables {
+          # first page of form
+#          0 {
+#            renderables {
+            # number of element in form
+#              2 {
+              # another level (because of "Grid: Row")
+#                renderingOptions {
+#                  enabled = TEXT
+#                  enabled.value = 0
+#                  enabled.stdWrap {
+#                    override {
+#                      cObject = CONTENT
+#                      cObject {
+#                        table = tx_formvouchers_domain_model_vouchers
+#                        select {
+#                          pidInList = 51
+#                          where = is_used=0
+#                          max = 1
+#                        }
+#                        renderObj = TEXT
+#                        renderObj.value = 1
+#                      }
+#                    }
+#                  }
+#                }
+#              }
+#            }
+#          }
+#        }
+#      }
+#    }
+  }
 }
