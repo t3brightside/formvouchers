@@ -1,19 +1,12 @@
 <?php
 namespace Brightside\Formvouchers\Domain\Finishers;
 
-use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Form\Domain\Model\Renderable\AbstractRenderable;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
 class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
 {
-    private LoggerInterface $logger;
-
-    public function __construct(LoggerInterface $logger) {
-        parent::__construct($finisherIdentifier);
-        $this->logger = $logger;
-    }
 
     /**
      * @var array
