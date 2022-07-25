@@ -22,12 +22,12 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
     {
         $voucherPageUid = $this->parseOption('voucherPageUid');
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_formvouchers_domain_model_vouchers');
-        $uid = 0;
+
         $row = $queryBuilder
             ->select('uid', 'voucher')
             ->from('tx_formvouchers_domain_model_vouchers')
             ->where(
-                $queryBuilder->expr()->eq('is_used', $queryBuilder->createNamedParameter((int)$uid, \PDO::PARAM_INT))
+                $queryBuilder->expr()->eq('is_used', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
             )
             ->setMaxResults(1)
             ->executeQuery()
@@ -37,9 +37,9 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
         $voucher = $row['voucher']. " " . $uid;
 
         $queryBuilder
-            ->update('tx_formvouchers_domain_model_vouchers', 't')
+            ->update('tx_formvouchers_domain_model_vouchers')
             ->where(
-                $queryBuilder->expr()->eq('t.uid', $queryBuilder->createNamedParameter((int)$uid, \PDO::PARAM_INT))
+                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter((int)$uid, \PDO::PARAM_INT))
                 )
             ->set('is_used', 1)
             ->set('pid', $voucherPageUid)
