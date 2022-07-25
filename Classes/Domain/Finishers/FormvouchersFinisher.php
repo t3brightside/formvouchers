@@ -1,25 +1,36 @@
 <?php
 namespace Brightside\Formvouchers\Domain\Finishers;
 
-use Brightside\Formvouchers\Domain\Model\Formvouchers;
+use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Form\Domain\Model\Renderable\AbstractRenderable;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
 class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
 {
+    private LoggerInterface $logger;
+
+    public function __construct(LoggerInterface $logger) {
+        parent::__construct($finisherIdentifier);
+        $this->logger = $logger;
+    }
 
     /**
      * @var array
      */
     protected $options = [
         'voucherPageUid' => 0,
+        'checkSend' => ''
     ];
     /**
      * @return string|null
      */
     public function executeInternal()
     {
+        $checkSend = $this->parseOption('checkSend');
+        if ($checkSend == '' ){
+            return null;
+        }
         $voucherPageUid = $this->parseOption('voucherPageUid');
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_formvouchers_domain_model_vouchers');
 
@@ -54,7 +65,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                 ->where(
                     $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter((int)$uid, \PDO::PARAM_INT))
                     )
-                ->execute();
+                ->executeStatement();
 
             sem_release($semaphore);
 
