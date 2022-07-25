@@ -21,6 +21,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                 $queryBuilder->expr()->eq('is_used', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
             )
             ->setMaxResults(1)
+            ->executeQuery()
             ->fetchAssociative();
         $voucher = $row['voucher'];
         /** @var AbstractRenderable $newField */
