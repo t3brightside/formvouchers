@@ -3,6 +3,8 @@ namespace Brightside\Formvouchers\Domain\Finishers;
 
 use Brightside\Formvouchers\Domain\Model\Formvouchers;
 use TYPO3\CMS\Form\Domain\Model\Renderable\AbstractRenderable;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
 
 class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFinisher
 {
@@ -11,8 +13,16 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
      */
     public function executeInternal()
     {
-        $voucher = "Experiment";
-
+        $row = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_formvouchers_domain_model_vouchers')
+            ->select(
+                ['voucher'], // fields to select
+                'tx_formvouchers_domain_model_vouchers', // from
+                [ 'is_used' => (int)0 ] // where
+            )
+            ->setMaxResults(1)
+            ->fetchAssociative();
+        $voucher = $row['voucher'];
         /** @var AbstractRenderable $newField */
         $newField = $this->finisherContext
             ->getFormRuntime()
