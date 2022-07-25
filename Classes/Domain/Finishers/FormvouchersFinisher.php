@@ -59,6 +59,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                 ->update('tx_formvouchers_domain_model_vouchers')
                 ->set('is_used', 1)
                 ->set('pid', $voucherPageUid)
+                ->set('tstamp', (int)$GLOBALS['EXEC_TIME'])
                 ->where(
                     $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter((int)$uid, \PDO::PARAM_INT))
                     )
