@@ -13,12 +13,12 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
      */
     public function executeInternal()
     {
-        $row = GeneralUtility::makeInstance(ConnectionPool::class)
-            ->getConnectionForTable('tx_formvouchers_domain_model_vouchers')
-            ->select(
-                ['voucher'], // fields to select
-                'tx_formvouchers_domain_model_vouchers', // from
-                [ 'is_used' => (int)0 ] // where
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_formvouchers_domain_model_vouchers');
+        $row = $queryBuilder
+            ->select('voucher')
+            ->from('tx_formvouchers_domain_model_vouchers')
+            ->where(
+                $queryBuilder->expr()->eq('is_used', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
             )
             ->setMaxResults(1)
             ->fetchAssociative();
