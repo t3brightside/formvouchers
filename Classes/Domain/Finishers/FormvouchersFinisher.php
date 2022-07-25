@@ -36,7 +36,6 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
         $uid = $row['uid'];
         $voucher = $row['voucher']. " " . $uid;
 
-        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_formvouchers_domain_model_vouchers');
         $queryBuilder
             ->update('tx_formvouchers_domain_model_vouchers')
             ->set('is_used', 1)
@@ -44,7 +43,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
             ->where(
                 $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter((int)$uid, \PDO::PARAM_INT))
                 )
-            ->executeQuery();
+            ->execute();
 
         /** @var AbstractRenderable $newField */
         $newField = $this->finisherContext
