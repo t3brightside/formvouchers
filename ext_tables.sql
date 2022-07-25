@@ -1,7 +1,7 @@
 #
 # Table structure for table 'tx_formvouchers'
 #
-CREATE TABLE tx_formvouchers (
+CREATE TABLE tx_formvouchers_domain_model_vouchers (
     uid int(11) unsigned DEFAULT 0 NOT NULL auto_increment,
     pid int(11) DEFAULT 0 NOT NULL,
 
