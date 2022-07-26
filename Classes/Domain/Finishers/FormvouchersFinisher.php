@@ -56,7 +56,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                 return null;
             }
             $uid = $row['uid'];
-            $voucher = $row['voucher'];
+            $voucher = $row['voucher'] . " ". $checkSend." " . $formValues[$checkSend] ;
 
             $queryBuilder
                 ->update('tx_formvouchers_domain_model_vouchers')
