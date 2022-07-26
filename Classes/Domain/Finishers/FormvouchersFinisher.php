@@ -14,7 +14,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
     protected $options = [
         'voucherPageUid' => 0,
         'checkSend' => '',
-        'checkSendenabled' => true
+        'checkSendEnabled' => true
     ];
     /**
      * @return string|null
