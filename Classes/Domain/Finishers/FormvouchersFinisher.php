@@ -22,10 +22,11 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
     {
         $checkSend = $this->parseOption('checkSend');
         $formValues = $this->finisherContext->getFormValues();
-        debug($formValues);
-        if ($checkSend != '' and true) {
+
+        if ($checkSend != '' and !array_key_exists($checkSend, $formValues) and $formValues[$checkSend]!= '') {
             return null;
         }
+
         $voucherPageUid = $this->parseOption('voucherPageUid');
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_formvouchers_domain_model_vouchers');
 
