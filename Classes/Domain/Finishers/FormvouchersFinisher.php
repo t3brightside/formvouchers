@@ -21,7 +21,9 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
     public function executeInternal()
     {
         $checkSend = $this->parseOption('checkSend');
-        if ($checkSend == '' ){
+        $formValues = $this->finisherContext->getFormValues();
+        debug($formValues);
+        if ($checkSend != '' and true) {
             return null;
         }
         $voucherPageUid = $this->parseOption('voucherPageUid');
@@ -45,7 +47,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                     $queryBuilder->expr()->eq('is_used', $queryBuilder->createNamedParameter(0, \PDO::PARAM_INT))
                 )
                 ->setMaxResults(1)
-                ->executeQuery()
+                ->execute()
                 ->fetchAssociative();
 
             if (!$row) {
@@ -63,7 +65,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                 ->where(
                     $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter((int)$uid, \PDO::PARAM_INT))
                     )
-                ->executeStatement();
+                ->execute();
 
             sem_release($semaphore);
 
