@@ -21,10 +21,8 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
     public function executeInternal()
     {
         $checkSend = $this->parseOption('checkSend');
-        $formValues = $this->finisherContext->getFormValues();
-        var_dump($formValues);
 
-        if ($checkSend != '' and !array_key_exists($checkSend, $formValues) and $formValues[$checkSend]!= '') {
+        if ($checkSend != '') {
             return null;
         }
 
@@ -57,7 +55,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                 return null;
             }
             $uid = $row['uid'];
-            $voucher = $row['voucher'] . "x". $checkSend."x" . $formValues[$checkSend] ;
+            $voucher = $row['voucher'];
 
             $queryBuilder
                 ->update('tx_formvouchers_domain_model_vouchers')
