@@ -22,6 +22,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
     {
         $checkSend = $this->parseOption('checkSend');
         $formValues = $this->finisherContext->getFormValues();
+        var_dump($formValues);
 
         if ($checkSend != '' and !array_key_exists($checkSend, $formValues) and $formValues[$checkSend]!= '') {
             return null;
