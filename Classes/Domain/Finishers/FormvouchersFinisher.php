@@ -24,7 +24,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
         $checkSend = $this->parseOption('checkSend');
         $checkSendEnabled = $this->parseOption('checkSendEnabled');
 
-        if (!$checkSendEnabled or $checkSend == '') {
+        if ($checkSendEnabled and $checkSend == '') {
             return null;
         }
 
