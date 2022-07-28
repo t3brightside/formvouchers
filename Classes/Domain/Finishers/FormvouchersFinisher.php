@@ -79,7 +79,7 @@ class FormvouchersFinisher extends \TYPO3\CMS\Form\Domain\Finishers\AbstractFini
                 ->createElement('code', 'Text');
             $newField->setDefaultValue($voucher);
             $newField->setDataType('string');
-            $newField->setLabel('code');
+            $newField->setLabel('Voucher');
 
             $this->finisherContext->getFinisherVariableProvider()->add(
                 $this->shortFinisherIdentifier,
