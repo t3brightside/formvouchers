@@ -10,10 +10,14 @@
           "name": "Tanel Põld",
           "role": "Developer",
           "homepage": "https://t3brightside.com"
+      },
+      {
+          "name": "Lauri Jesmin",
+          "role": "Developer"
       }
   ],
   "require": {
-    "typo3/cms-core": "^10.4 || ^11.5"
+    "typo3/cms-core": "^11.5"
   },
   "autoload": {
     "psr-4": {
