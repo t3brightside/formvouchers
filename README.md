@@ -23,6 +23,10 @@
  - Set up voucher records
  - Configure the finisher in your form pointing to the voucher records page
  - Check Configuration/TypoScript/setup.typoscript for how to hide voucher request field in form if run out of codes
+ - In custom email template you can use:
+```xml
+<formvh:renderFormValue renderable="{form.formDefinition.elements.code}" as="formValue">{formValue.processedValue}</formvh:renderFormValue>
+```
 
 ## Sources
 -  [GitHub](https://github.com/t3brightside/formvouchers)
