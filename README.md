@@ -1,6 +1,6 @@
 # Formvouchers
 [![License](https://poser.pugx.org/t3brightside/formvouchers/license)](LICENSE.txt)
-[![Packagist](https://img.shields.io/packagist/v/t3brightside/formvouchers.svg?style=flat)](https://packagist.org/packages/t3brightside/pagelist)
+[![Packagist](https://img.shields.io/packagist/v/t3brightside/formvouchers.svg?style=flat)](https://packagist.org/packages/t3brightside/formvouchers)
 [![Downloads](https://poser.pugx.org/t3brightside/formvouchers/downloads)](https://packagist.org/packages/t3brightside/formvouchers)
 [![Brightside](https://img.shields.io/badge/by-t3brightside.com-orange.svg?style=flat)](https://t3brightside.com)
 
