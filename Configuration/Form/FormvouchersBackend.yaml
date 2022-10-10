@@ -36,12 +36,12 @@ TYPO3:
                         250:
                           identifier: 'checkSendEnabled'
                           templateName: 'Inspector-CheckboxEditor'
-                          label: 'Enable field check'
+                          label: 'A field has to be checked for sending'
                           propertyPath: 'options.checkSendEnabled'
                         300:
                           identifier: 'checkSend'
                           templateName: 'Inspector-TextEditor'
-                          label: 'Field to be checked before sending'
+                          label: 'Check this field'
                           propertyPath: 'options.checkSend'
                           enableFormelementSelectionButton: true
                           propertyValidators:
